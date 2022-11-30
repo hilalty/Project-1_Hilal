@@ -1,3 +1,20 @@
 html {
     background-color:darkslateblue;
 }
+
+h1 {
+    text-align: center;
+    color:forestgreen
+}
+
+.row {
+    justify-content: center;
+}
+
+.square {
+    border: solid;
+    border-color:darksalmon;
+    height: 10vh;
+    width: 10vw;
+    text-align: center;
+}
