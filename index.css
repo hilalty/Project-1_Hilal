@@ -9,6 +9,8 @@ h1 {
 
 .row {
     justify-content: center;
+    display: flex;
+    
 }
 
 .square {
@@ -17,4 +19,9 @@ h1 {
     height: 10vh;
     width: 10vw;
     text-align: center;
+    
+}
+
+.board {
+    padding-top: 10%;
 }
