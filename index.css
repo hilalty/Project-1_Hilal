@@ -25,3 +25,7 @@ h1 {
 .board {
     padding-top: 10%;
 }
+
+#startButton {
+    margin: 20px;
+}

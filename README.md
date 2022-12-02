@@ -3,3 +3,10 @@ I thought of a game where player chooses the different color cube in a block of 
 Actually it's not very creative as already there are this kind of games, but I want to try to make some individual touches to it.
 
 I'll update this paragraph if I come up with a new idea!
+
+
+Things to do:
+
+drop down menu yap
+m ve n degiskelnerini grab et
+timer

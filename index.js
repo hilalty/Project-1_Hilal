@@ -12,17 +12,28 @@ class Color {
 }
 
 // VARIABLES
-const container = document.getElementById("container");
 const squares = document.getElementsByClassName("square");
-let differentSquareIndex;
+const board = document.getElementById("board");
+
 const successEl = document.getElementById("successEl");
 const failEl = document.getElementById("failEl");
+
+let rowCountEl = document.getElementById("inputEl1");
+let rowCount = 4;
+
+let columnCountEl = document.getElementById("inputEl2");
+let columnCount = 4;
+const startButton = document.getElementById("startButton");
+
+let differentSquareIndex;
 let successCount = 0;
 let failCount = 0;
 
 // ASSIGNING COLOR
 function assignColor() {
-  differentSquareIndex = Math.floor(Math.random() * 16);
+  differentSquareIndex = Math.floor(Math.random() * (rowCount * columnCount));
+  console.log(" dif" + differentSquareIndex);
+  console.log("sl" + squares.length);
   let selectedColorAll = getRandomColor();
   let selectedColorOne = getSimilarColor(selectedColorAll);
   for (let i = 0; i < squares.length; i++) {
@@ -31,10 +42,18 @@ function assignColor() {
   squares[differentSquareIndex].style.backgroundColor =
     selectedColorOne.toString();
 }
-assignColor();
 
 function getSimilarColor(mainColor) {
   return new Color(mainColor.r + 30, mainColor.g + 30, mainColor.b + 30);
+}
+
+//START GAME
+function startGame() {
+  rowCount = parseInt(rowCountEl.value);
+  columnCount = parseInt(columnCountEl.value);
+
+  createCells();
+  assignColor();
 }
 
 //GENERATING RANDOM COLOR
@@ -44,17 +63,9 @@ function getRandomColor() {
   let c = getColorValue();
   return new Color(a, b, c);
 }
-console.log(getRandomColor());
 
 function getColorValue() {
   return Math.floor(Math.random() * 256);
-}
-
-// CLICK FUNCTIONS
-for (let i = 0; i < squares.length; i++) {
-  squares[i].addEventListener("click", () => {
-    handleClick(i);
-  });
 }
 
 function handleClick(index) {
@@ -67,3 +78,31 @@ function handleClick(index) {
   failEl.innerText = failCount;
   assignColor();
 }
+
+// CREATE CELLS
+function createCells() {
+  while (board.hasChildNodes()) {
+    board.removeChild(board.firstChild);
+  }
+  for (let i = 0; i < rowCount; i++) {
+    let rowEl = document.createElement("div");
+    rowEl.setAttribute("class", "row");
+
+    for (j = 0; j < columnCount; j++) {
+      let cellEl = document.createElement("div");
+      cellEl.setAttribute("class", "square");
+      rowEl.appendChild(cellEl);
+    }
+    board.appendChild(rowEl);
+  }
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].addEventListener("click", () => {
+      handleClick(i);
+    });
+  }
+}
+
+// PROGRAM STARTS
+
+createCells();
+startButton.addEventListener("click", startGame);
