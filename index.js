@@ -31,9 +31,10 @@ let failCount = 0;
 
 // ASSIGNING COLOR
 function assignColor() {
-  differentSquareIndex = Math.floor(Math.random() * (rowCount * columnCount));
-  console.log(" dif" + differentSquareIndex);
-  console.log("sl" + squares.length);
+  failEl.innerText = failCount;
+  successEl.innerText = successCount;
+
+  differentSquareIndex = getRandomInt(rowCount * columnCount);
   let selectedColorAll = getRandomColor();
   let selectedColorOne = getSimilarColor(selectedColorAll);
   for (let i = 0; i < squares.length; i++) {
@@ -41,6 +42,7 @@ function assignColor() {
   }
   squares[differentSquareIndex].style.backgroundColor =
     selectedColorOne.toString();
+    sec = 5;
 }
 
 function getSimilarColor(mainColor) {
@@ -51,9 +53,22 @@ function getSimilarColor(mainColor) {
 function startGame() {
   rowCount = parseInt(rowCountEl.value);
   columnCount = parseInt(columnCountEl.value);
-
+  initializeTimer();
   createCells();
   assignColor();
+}
+
+let sec;
+function initializeTimer() {
+  sec = 5;
+  let timer = setInterval(function () {
+    document.getElementById("timerEl").innerHTML = "Timer: " + sec;
+    sec--;
+    if (sec < 0) {
+      failCount++;
+      assignColor();
+    }
+  }, 1000);
 }
 
 //GENERATING RANDOM COLOR
@@ -65,7 +80,11 @@ function getRandomColor() {
 }
 
 function getColorValue() {
-  return Math.floor(Math.random() * 256);
+  return getRandomInt(256);
+}
+
+function getRandomInt(maxValue) {
+  return Math.floor(Math.random() * maxValue);
 }
 
 function handleClick(index) {

@@ -7,6 +7,5 @@ I'll update this paragraph if I come up with a new idea!
 
 Things to do:
 
-drop down menu yap
-m ve n degiskelnerini grab et
+
 timer
