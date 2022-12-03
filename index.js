@@ -30,7 +30,7 @@ let successCount = 0;
 let failCount = 0;
 
 // ASSIGNING COLOR
-function assignColor() {
+function resetBoard() {
   failEl.innerText = failCount;
   successEl.innerText = successCount;
 
@@ -55,7 +55,8 @@ function startGame() {
   columnCount = parseInt(columnCountEl.value);
   initializeTimer();
   createCells();
-  assignColor();
+  resetBoard
+();
 }
 
 let sec;
@@ -66,7 +67,8 @@ function initializeTimer() {
     sec--;
     if (sec < 0) {
       failCount++;
-      assignColor();
+      resetBoard
+    ();
     }
   }, 1000);
 }
@@ -95,7 +97,8 @@ function handleClick(index) {
   }
   successEl.innerText = successCount;
   failEl.innerText = failCount;
-  assignColor();
+  resetBoard
+();
 }
 
 // CREATE CELLS

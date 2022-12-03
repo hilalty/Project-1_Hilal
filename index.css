@@ -9,21 +9,24 @@ h1 {
 
 .row {
     justify-content: center;
-    display: flex;
-    
+    display: flex; 
 }
+
+.column {
+    display: flex;
+    align-items: center;
+}
+
 
 .square {
     border: solid;
     border-color:darksalmon;
     height: 10vh;
-    width: 10vw;
-    text-align: center;
-    
+    width: 7vw;
 }
 
-.board {
-    padding-top: 10%;
+#board {
+    padding-top: 5%;
 }
 
 #startButton {
