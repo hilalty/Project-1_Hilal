@@ -33,7 +33,7 @@ class Configuration {
   }
 }
 
-let configuration = new Configuration(4, 4, 5, 5, 30, 0, 0, 0);
+let configuration = new Configuration(4, 4, 15, 15, 60, 0, 0, 0);
 
 // VARIABLES
 const squares = document.getElementsByClassName("square");
@@ -84,6 +84,9 @@ function startGame() {
 
 function initializeTimer() {
   configuration.sec = configuration.timerLength;
+
+  document.getElementById("timerEl").innerHTML = "Timer: " + configuration.sec;
+
   setInterval(function () {
     document.getElementById("timerEl").innerHTML =
       "Timer: " + configuration.sec;
@@ -149,3 +152,25 @@ function createCells() {
 
 createCells();
 startButton.addEventListener("click", startGame);
+function changeDifficulty() {
+  const option = document.getElementById("difficulty").value;
+  console.log("111111");
+
+  if (option == "easy") {
+    configuration.colorSpectrum = 60;
+    configuration.timerLength = 15;
+    console.log("22222");
+  }
+  if (option == "average") {
+    configuration.colorSpectrum = 45;
+    configuration.timerLength = 10;
+  }
+  if (option == "advanced") {
+    configuration.colorSpectrum = 30;
+    configuration.timerLength = 6;
+  }
+  if (option == "hard") {
+    configuration.colorSpectrum = 15;
+    configuration.timerLength = 3;
+  }
+}
