@@ -21,14 +21,14 @@ h1 {
 .square {
     border: solid;
     border-color:darksalmon;
-    height: 10vh;
-    width: 7vw;
+    height: 80px;
+    width: 80px;
 }
 
 #board {
-    padding-top: 5%;
+    padding-top: 2%;
 }
 
 #startButton {
-    margin: 20px;
+    margin: 20px 80px;
 }
