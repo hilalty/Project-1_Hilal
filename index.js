@@ -46,6 +46,8 @@ const rowCountEl = document.getElementById("inputEl1");
 const columnCountEl = document.getElementById("inputEl2");
 
 const startButton = document.getElementById("startButton");
+const playerName = document.getElementById("playerName");
+
 
 // ASSIGNING COLOR
 function resetBoard() {
@@ -77,6 +79,8 @@ function getSimilarColor(mainColor) {
 function startGame() {
   configuration.rowCount = parseInt(rowCountEl.value);
   configuration.columnCount = parseInt(columnCountEl.value);
+  playerName.innerHTML = document.getElementById("playerNameInput").value;
+  document.getElementById("gameOptionsDiv").style.display = "none";
   initializeTimer();
   createCells();
   resetBoard();
@@ -97,6 +101,7 @@ function initializeTimer() {
     }
   }, 1000);
 }
+
 
 //GENERATING RANDOM COLOR
 function getRandomColor() {
@@ -152,14 +157,14 @@ function createCells() {
 
 createCells();
 startButton.addEventListener("click", startGame);
+
 function changeDifficulty() {
   const option = document.getElementById("difficulty").value;
-  console.log("111111");
 
   if (option == "easy") {
     configuration.colorSpectrum = 60;
     configuration.timerLength = 15;
-    console.log("22222");
+
   }
   if (option == "average") {
     configuration.colorSpectrum = 45;
@@ -174,3 +179,5 @@ function changeDifficulty() {
     configuration.timerLength = 3;
   }
 }
+
+localStorage.setItem("scores", successCount);

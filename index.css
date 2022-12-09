@@ -1,34 +1,56 @@
 html {
-    background-color:darkslateblue;
+  background-color: white;
 }
 
 h1 {
-    text-align: center;
-    color:forestgreen
+  text-align: center;
+  color: forestgreen;
+}
+
+h2 {
+    background-color: white;
 }
 
 .row {
-    justify-content: center;
-    display: flex; 
+  justify-content: center;
+  display: flex;
 }
 
 .column {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-
 .square {
-    border: solid;
-    border-color:darksalmon;
-    height: 80px;
-    width: 80px;
+  border: solid;
+  border-color: darksalmon;
+  height: 80px;
+  width: 80px;
 }
 
 #board {
-    padding-top: 2%;
+  padding-top: 2%;
+}
+
+#inputEl1 {
+    width: 30px;
+    border-radius: 10px;
+}
+
+#inputEl2 {
+    width: 30px;
+    border-radius: 10px;
 }
 
 #startButton {
-    margin: 20px 80px;
+  margin: 20px 0px 0px 60px;
+}
+
+#playerNameInput {
+    margin: 0px;
+}
+
+#gameOptionsDiv {
+    margin-top: 50px;
+
 }

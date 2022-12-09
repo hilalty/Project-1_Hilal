@@ -11,23 +11,29 @@
   <body>
     <h1>Pick the different color!</h1>
     <div id="board"></div>
+    <h2> Player: <span id="playerName"></span>  </h2>
     <h2 id="timerEl"> Timer:  </h2>
     <h2>Success: <span id="successEl"> </span></h2>
     <h2>Fail: <span id="failEl"> </span></h2>
-    <input type="number" id="inputEl1" value= "4"> 
-    </input>
-    <input type="number" id="inputEl2" value="4"> 
-      You can enter number of rows and columns  
-    </input>
-    </br>
-    <select id="difficulty" onchange="changeDifficulty()">
-        <option value="easy">Easy</option>
-        <option value="average">Average</option>
-        <option value="advanced">Advanced</option>
-        <option value="hard">Hard</option>
+    <div id="gameOptionsDiv">
+      <input type="text" id="playerNameInput" placeholder="Enter player name">
+      </input>
+      <p> Number of rows and columns: </p>
+      <input type="number" id="inputEl1" value= "4"> 
+      </input>
+      <input type="number" id="inputEl2" value="4">  
+      </input>
+      </br>
+      <select id="difficulty" onchange="changeDifficulty()">
+          <option value="easy">Easy</option>
+          <option value="average">Average</option>
+          <option value="advanced">Advanced</option>
+          <option value="hard">Hard</option>
       </select>
-    <button id="startButton"> 
+    
+      <button id="startButton"> 
         Start the Game 
-    </button>
+      </button>
+    </div>
   </body>
 </html>
