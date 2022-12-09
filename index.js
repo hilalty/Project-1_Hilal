@@ -34,6 +34,7 @@ class Configuration {
 }
 
 let configuration = new Configuration(4, 4, 15, 15, 60, 0, 0, 0);
+document.getElementById("boardAndStats").style.display = "none";
 
 // VARIABLES
 const squares = document.getElementsByClassName("square");
@@ -81,6 +82,7 @@ function startGame() {
   configuration.columnCount = parseInt(columnCountEl.value);
   playerName.innerHTML = document.getElementById("playerNameInput").value;
   document.getElementById("gameOptionsDiv").style.display = "none";
+  document.getElementById("boardAndStats").style.display = "block";
   initializeTimer();
   createCells();
   resetBoard();
@@ -179,5 +181,3 @@ function changeDifficulty() {
     configuration.timerLength = 3;
   }
 }
-
-localStorage.setItem("scores", successCount);

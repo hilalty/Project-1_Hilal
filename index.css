@@ -2,13 +2,18 @@ html {
   background-color: white;
 }
 
-h1 {
+#title {
   text-align: center;
-  color: forestgreen;
+  color: black;
+  font-family: 'Monoton', cursive;
+  font-size: xx-large;
 }
+
+
 
 h2 {
     background-color: white;
+    text-align: center;
 }
 
 .row {
@@ -23,13 +28,14 @@ h2 {
 
 .square {
   border: solid;
-  border-color: darksalmon;
+  border-color: white;
   height: 80px;
   width: 80px;
 }
 
 #board {
-  padding-top: 2%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 #inputEl1 {
@@ -51,6 +57,7 @@ h2 {
 }
 
 #gameOptionsDiv {
-    margin-top: 50px;
+    margin-top: 150px;
+    text-align: center;
 
 }

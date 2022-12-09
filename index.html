@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="index.css" />
     <script defer src="index.js"></script>
     <title>Project-1_Hilal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
   </head>
   <body>
-    <h1>Pick the different color!</h1>
-    <div id="board"></div>
-    <h2> Player: <span id="playerName"></span>  </h2>
-    <h2 id="timerEl"> Timer:  </h2>
-    <h2>Success: <span id="successEl"> </span></h2>
-    <h2>Fail: <span id="failEl"> </span></h2>
+    <p id="title">PICK   THE   DIFFERENT   COLOR</p>
+    <div id="boardAndStats">
+      <div id="board"></div>
+      <h2> Player: <span id="playerName"></span>  </h2>
+      <h2 id="timerEl"> Timer:  </h2>
+      <h2>Success: <span id="successEl"> </span></h2>
+      <h2>Fail: <span id="failEl"> </span></h2>
+    </div>
+    
     <div id="gameOptionsDiv">
+      <h1> Let's Get Ready!</h2>
       <input type="text" id="playerNameInput" placeholder="Enter player name">
       </input>
       <p> Number of rows and columns: </p>
