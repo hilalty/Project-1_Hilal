@@ -5,15 +5,13 @@ html {
 #title {
   text-align: center;
   color: black;
-  font-family: 'Monoton', cursive;
+  font-family: "Monoton", cursive;
   font-size: xx-large;
 }
 
-
-
 h2 {
-    background-color: white;
-    text-align: center;
+  background-color: white;
+  text-align: center;
 }
 
 .row {
@@ -39,13 +37,13 @@ h2 {
 }
 
 #inputEl1 {
-    width: 30px;
-    border-radius: 10px;
+  width: 30px;
+  border-radius: 10px;
 }
 
 #inputEl2 {
-    width: 30px;
-    border-radius: 10px;
+  width: 30px;
+  border-radius: 10px;
 }
 
 #startButton {
@@ -53,11 +51,10 @@ h2 {
 }
 
 #playerNameInput {
-    margin: 0px;
+  margin: 0px;
 }
 
 #gameOptionsDiv {
-    margin-top: 150px;
-    text-align: center;
-
+  margin-top: 150px;
+  text-align: center;
 }

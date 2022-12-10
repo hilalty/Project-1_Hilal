@@ -33,8 +33,7 @@ class Configuration {
   }
 }
 
-let configuration = new Configuration(4, 4, 15, 15, 60, 0, 0, 0);
-document.getElementById("boardAndStats").style.display = "none";
+let configuration;
 
 // VARIABLES
 const squares = document.getElementsByClassName("square");
@@ -49,9 +48,20 @@ const columnCountEl = document.getElementById("inputEl2");
 const startButton = document.getElementById("startButton");
 const playerName = document.getElementById("playerName");
 
+const boardAndStatsEl = document.getElementById("boardAndStats");
+const gameOptionsEl = document.getElementById("gameOptionsDiv");
+
+const highScoreEl = document.getElementById("highScore");
+
+boardAndStatsEl.style.display = "none";
+
+let myInterval;
+
+let highScore = 0;
 
 // ASSIGNING COLOR
 function resetBoard() {
+  checkGameOver();
   failEl.innerText = configuration.failCount;
   successEl.innerText = configuration.successCount;
 
@@ -77,12 +87,19 @@ function getSimilarColor(mainColor) {
 }
 
 //START GAME
+function initialize() {
+  configuration = new Configuration(4, 4, 15, 15, 60, 0, 0, 0);
+  boardAndStatsEl.style.display = "none";
+  gameOptionsEl.style.display = "block";
+  readHighScore();
+}
+
 function startGame() {
   configuration.rowCount = parseInt(rowCountEl.value);
   configuration.columnCount = parseInt(columnCountEl.value);
   playerName.innerHTML = document.getElementById("playerNameInput").value;
-  document.getElementById("gameOptionsDiv").style.display = "none";
-  document.getElementById("boardAndStats").style.display = "block";
+  gameOptionsEl.style.display = "none";
+  boardAndStatsEl.style.display = "block";
   initializeTimer();
   createCells();
   resetBoard();
@@ -93,7 +110,7 @@ function initializeTimer() {
 
   document.getElementById("timerEl").innerHTML = "Timer: " + configuration.sec;
 
-  setInterval(function () {
+  myInterval = setInterval(function () {
     document.getElementById("timerEl").innerHTML =
       "Timer: " + configuration.sec;
     configuration.sec--;
@@ -103,7 +120,6 @@ function initializeTimer() {
     }
   }, 1000);
 }
-
 
 //GENERATING RANDOM COLOR
 function getRandomColor() {
@@ -155,29 +171,53 @@ function createCells() {
   }
 }
 
-// PROGRAM STARTS
-
-createCells();
-startButton.addEventListener("click", startGame);
-
 function changeDifficulty() {
   const option = document.getElementById("difficulty").value;
 
-  if (option == "easy") {
-    configuration.colorSpectrum = 60;
-    configuration.timerLength = 15;
-
-  }
-  if (option == "average") {
-    configuration.colorSpectrum = 45;
-    configuration.timerLength = 10;
-  }
-  if (option == "advanced") {
-    configuration.colorSpectrum = 30;
-    configuration.timerLength = 6;
-  }
-  if (option == "hard") {
-    configuration.colorSpectrum = 15;
-    configuration.timerLength = 3;
+  switch (option) {
+    case "easy":
+      configuration.colorSpectrum = 60;
+      configuration.timerLength = 15;
+      break;
+    case "average":
+      configuration.colorSpectrum = 45;
+      configuration.timerLength = 10;
+      break;
+    case "advanced":
+      configuration.colorSpectrum = 30;
+      configuration.timerLength = 6;
+      break;
+    case "hard":
+      configuration.colorSpectrum = 15;
+      configuration.timerLength = 3;
+      break;
   }
 }
+
+function checkGameOver() {
+  if (configuration.failCount == 3) {
+    clearInterval(myInterval);
+    writeHighScore();
+    alert("Game Over!!!");
+    initialize();
+  }
+}
+
+function readHighScore() {
+  let scoreText = localStorage.getItem("high_score");
+  let score = parseInt(scoreText);
+  if (score > 0) {
+    highScore = score;
+  }
+  highScoreEl.innerText = highScore;
+}
+
+function writeHighScore() {
+  if (configuration.successCount > highScore) {
+    localStorage.setItem("high_score", configuration.successCount);
+  }
+}
+
+// PROGRAM STARTS
+initialize();
+startButton.addEventListener("click", startGame);
